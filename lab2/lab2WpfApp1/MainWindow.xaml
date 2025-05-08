@@ -8,47 +8,53 @@
         Title="TextEditor" Height="250" Width="450">
     <Window.Resources>
         <LinearGradientBrush x:Key="LinearPanelBrush">
-            <GradientStop Color="Yellow" Offset="0"></GradientStop>
-            <GradientStop Color="Aqua" Offset="0.5"></GradientStop>
-            <GradientStop Color="Yellow" Offset="0.8"></GradientStop>
-            <GradientStop></GradientStop>
+            <GradientStop Color="Yellow" Offset="0" />
+            <GradientStop Color="Aqua" Offset="0.5" />
+            <GradientStop Color="Yellow" Offset="0.8" />
         </LinearGradientBrush>
         <Style TargetType="Button">
-            <Setter Property="Margin" Value="5"></Setter>
-            <Setter Property="Background" Value="Transparent"></Setter>
-            <Setter Property="BorderBrush" Value="White"></Setter>
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="White" />
         </Style>
     </Window.Resources>
     <Grid ShowGridLines="False">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
         </Grid.RowDefinitions>
+
         <Border Grid.Row="0" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10" Background="{StaticResource LinearPanelBrush}">
             <StackPanel Grid.Row="0" Orientation="Horizontal">
-                <Button Width="45" Height="45">
+                <Button Width="45" Height="45" Command="Open">
                     <Image ToolTip="Open" Source="/images/open.png" />
                 </Button>
-                <Button Width="45" Height="45">
-                    <Image ToolTip="Erase" Source="/images/erase.png"/>
+                <Button Width="45" Height="45" Command="Close">
+                    <Image ToolTip="Erase" Source="/images/erase.png" />
                 </Button>
-                <Button Width="45" Height="45">
-                    <Image ToolTip="Copy" Source="/images/copy.png"/>
+                <Button Width="45" Height="45" Command="Copy">
+                    <Image ToolTip="Copy" Source="/images/copy.png" />
                 </Button>
-                <Button Width="45" Height="45">
-                    <Image ToolTip="Insert" Source="/images/insert.png"/>
+                <Button Width="45" Height="45" Command="Paste">
+                    <Image ToolTip="Insert" Source="/images/insert.png" />
                 </Button>
             </StackPanel>
         </Border>
+
         <Border Grid.Row="1" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10" Background="{StaticResource LinearPanelBrush}">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <TextBox Grid.Row="0" Margin="10" VerticalScrollBarVisibility="Visible"></TextBox>
+                <TextBox x:Name="inputTextBox" Grid.Row="0" Margin="10"
+                         VerticalScrollBarVisibility="Visible"
+                         FontSize="{Binding ElementName=fontSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" />
+
                 <DockPanel Grid.Row="1" Margin="10">
-                    <Button DockPanel.Dock="Bottom" Width="30">OK</Button>
+                    <Label>Розмір шрифту:</Label>
+                    <Slider Margin="4" MinWidth="100" Name="fontSlider" Maximum="100" Minimum="12" />
+                    <Button DockPanel.Dock="Bottom" Width="30" ToolTip="Save" Command="Save">OK</Button>
                 </DockPanel>
             </Grid>
         </Border>
