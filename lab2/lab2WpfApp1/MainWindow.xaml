@@ -5,16 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lab2WpfApp1"
         mc:Ignorable="d"
-        Title="StackPanel app" Height="430" Width="570">
-    <StackPanel Margin="80">
-        <Label HorizontalAlignment="Center">Label</Label>
+        Title="WrapPanel app" Height="350" Width="500">
+    <Grid Margin="30">
+        <WrapPanel>
+            <Label>Label</Label>
+            <TextBox>TextBox</TextBox>
+            <TextBox>TextBox</TextBox>
+            <TextBox>TextBox</TextBox>
+            <TextBox>TextBox</TextBox>
+            <TextBox>TextBox</TextBox>
+            <TextBox>TextBox</TextBox>
+            <TextBox>TextBox</TextBox>
+            <TextBox>TextBox</TextBox>
 
-        <TextBox>TextBox</TextBox>
-        <TextBox>TextBox</TextBox>
-        <TextBox>TextBox</TextBox>
-        <TextBox>TextBox</TextBox>
-
-        <Button Margin="40" Width="120">Button</Button>
-
-    </StackPanel>
+            <Label>Label</Label>
+            <TextBox>TextBox</TextBox>
+            <TextBox>TextBox</TextBox>
+            <TextBox>TextBox</TextBox>
+            <TextBox>TextBox</TextBox>
+            <TextBox>TextBox</TextBox>
+            <TextBox>TextBox</TextBox>
+            <TextBox>TextBox</TextBox>
+            <TextBox>TextBox</TextBox>
+        </WrapPanel>
+        <Button HorizontalAlignment="Center" Margin="0,77,0,127" Width="74" Height="20">Button</Button>
+    </Grid>
 </Window>
